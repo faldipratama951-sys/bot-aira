@@ -7,7 +7,7 @@ const API_KEY = process.env.API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 
-const OWNER = "628xxx"; // GANTI NOMOR KAMU PAKE 62 ya
+const OWNER = "6289630677240";
 
 async function startBot() {
     const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys');

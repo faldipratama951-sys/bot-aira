@@ -11,16 +11,15 @@ const OWNER = "6289630677240";
 
 async function startBot() {
     const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys');
-    const sock = makeWASocket({ auth: state, printQRInTerminal: true });
+    const sock = makeWASocket({ auth: state });
 
-    sock.ev.on('creds.update', saveCreds);
     sock.ev.on('connection.update', (update) => {
-        const { connection, lastDisconnect } = update;
-        if(connection === 'close') {
-            if((lastDisconnect.error)?.output?.statusCode!== DisconnectReason.loggedOut) {
-                startBot();
-            }
-        } else if (connection === 'open') {
+        const { qr } = update;
+        if(qr) {
+           qrcode.generate(qr, { small: true});
+        }
+        const { connection } = update;
+        if(connection === 'open'){
             console.log('✅ Aira Pacar + Keuangan udah online!')
         }
     });
@@ -46,3 +45,5 @@ async function startBot() {
     });
 }
 startBot();
+
+fix: paksa munculin QR

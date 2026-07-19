@@ -1,0 +1,13 @@
+{
+"name": "bot-aira",
+"version": "1.0.0",
+"main": "index.js",
+"scripts": {
+  "start": "node index.js"
+},
+"dependencies": {
+  "@google/generative-ai": "^0.21.0",
+  "@whiskeysockets/baileys": "^6.7.8",
+  "qrcode-terminal": "^0.12.0"
+}
+}
